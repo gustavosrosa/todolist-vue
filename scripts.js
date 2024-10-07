@@ -25,7 +25,7 @@ const listaDeTarefas =  {
 
                 this.tarefas.push(novaTarefa);
 
-                localStorage.setItem(nomeLocalStorage, JSON.stringify(this.tarefas))
+                this.setTarefas();
 
                 this.novaTarefa = null;
             }
@@ -39,6 +39,10 @@ const listaDeTarefas =  {
 
         existemTarefasNaLista: function() {
             return this.tarefas.length > 0;
+        },
+
+        setTarefas() {
+            localStorage.setItem(nomeLocalStorage, JSON.stringify(this.tarefas))
         }
 
     },
@@ -55,6 +59,8 @@ const listaDeTarefas =  {
 
     updated() {
         this.mostrarOpcaoLimpar = this.existemTarefasNaLista();
+        
+        this.setTarefas();
     }
 
 }
