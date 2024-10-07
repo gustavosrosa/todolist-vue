@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <button class="clear" v-on:click="limpar()">Limpar tudo</button>
+            <button class="clear" v-if="mostrarOpcaoLimpar" v-on:click="limpar()">Limpar tudo</button>
 
             <input type="text" placeholder="Escreva uma nova tarefa..." v-model="novaTarefa">
             <button class="add" v-on:click="adicionarTarefa()">Adicionar</button>
